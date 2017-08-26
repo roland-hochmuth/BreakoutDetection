@@ -1,0 +1,17 @@
+command_exists()
+{
+    command -v "$1" >/dev/null 2>&1
+}
+
+if command_exists swig; then
+    {
+        cd Python
+        swig -python -c++ breakout_detection.i
+        python setup.py build_ext -I../src build
+        python setup.py build_ext -I../src install
+        echo "testing module..."
+        python test.py
+    }
+else
+    echo "error: please install swig"
+fi
