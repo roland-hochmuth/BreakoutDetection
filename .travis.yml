@@ -2,6 +2,7 @@
 #
 # See https://github.com/craigcitro/r-travis
 #     https://github.com/eddelbuettel/r-travis/
+sudo: required
 
 language: c
 
@@ -24,4 +25,3 @@ notifications:
   email:
     on_success: change
     on_failure: change
-
